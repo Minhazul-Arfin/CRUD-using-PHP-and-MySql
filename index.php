@@ -31,7 +31,7 @@
                 <?php
                     $servername = "localhost";
                     $username = "root";
-                    $password = "arefin692";
+                    $password = "";
                     $database = "crud";
 
                     // creating connection
