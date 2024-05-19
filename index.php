@@ -13,29 +13,64 @@
         <a class="btn btn-primary" href="">New Client</a>
         <br>
 
-        <table>
+        <table class="table table-bordered">
             <thead>
-                <tr>ID</tr>
-                <tr>Name</tr>
-                <tr>Email</tr>
-                <tr>Phone</tr>
-                <tr>Adrees</tr>
-                <tr>Created At</tr>
-                <tr>Action</tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Adrees</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
             </thead>
             <tbody>
-                <tr>
-                <td>20001</td>
-                <td>Elon Mask</td>
-                <td>elon.mask@gmail.com</td>
-                <td>+9980456826</td>
-                <td>New York, USA</td>
-                <td>12/07/2005</td>
-                <td>
-                    <a class="btn btn-primary btn-sm" href="">Edit</a>
-                    <a class="btn btn-primary btn-sm" href="">Delete</a>
-                </td>
-                </tr>
+                <!-- PHP Stated here -->
+                <!-- Database Connection -->
+                <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "arefin692";
+                    $database = "crud";
+
+                    // creating connection
+                    $connection = new mysqli($servername, $username, $password, $database);
+
+                    // checking connection
+                    if($connection -> connect_error){
+                        die("Connection Failed: " . $connection->connect_error);
+                    }
+
+
+                    // reading data from database
+                    $sql = "select * from clients";
+                    $result = $connection->query($sql);
+
+                    if(!$result){
+                        die("Invalid Query: " . $connection->error);
+                    }
+
+                    // reading data from each row
+                    while($row = $result -> fetch_assoc()){
+                        echo "
+                            <tr>
+                                <td>$row[id]</td>
+                                <td>$row[name]</td>
+                                <td>$row[email]</td>
+                                <td>$row[phone]</td>
+                                <td>$row[address]</td>
+                                <td>$row[created_at]</td>
+                                <td>
+                                    <a class='btn btn-primary btn-sm' href='/CRUD/edit.php?id=$row[id]'>Edit</a>
+                                    <a class='btn btn-primary btn-sm' href='/CRUD/delete.php?id=$row[id]'>Delete</a>
+                                </td>
+                            </tr>
+                        ";
+                    }
+
+                ?>
+
             </tbody>
         </table>
 
