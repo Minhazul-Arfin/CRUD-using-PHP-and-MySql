@@ -10,8 +10,8 @@
 <body>
     <div class="container my-5">
         <h2>List of Clients</h2>
-        <a class="btn btn-primary" href="">New Client</a>
-        <br>
+        <a class="btn btn-success" href="/create.php">Add New Client</a>
+        <br><br>
 
         <table class="table table-bordered">
             <thead>
@@ -62,8 +62,8 @@
                                 <td>$row[address]</td>
                                 <td>$row[created_at]</td>
                                 <td>
-                                    <a class='btn btn-primary btn-sm' href='/CRUD/edit.php?id=$row[id]'>Edit</a>
-                                    <a class='btn btn-primary btn-sm' href='/CRUD/delete.php?id=$row[id]'>Delete</a>
+                                    <a class='btn btn-secondary btn-sm' href='/CRUD/edit.php?id=$row[id]'>Edit</a>
+                                    <a class='btn btn-outline-danger btn-sm' href='/CRUD/delete.php?id=$row[id]'>Delete</a>
                                 </td>
                             </tr>
                         ";
