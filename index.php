@@ -62,8 +62,8 @@
                                 <td>$row[address]</td>
                                 <td>$row[created_at]</td>
                                 <td>
-                                    <a class='btn btn-secondary btn-sm' href='/CRUD/edit.php?id=$row[id]'>Edit</a>
-                                    <a class='btn btn-outline-danger btn-sm' href='/CRUD/delete.php?id=$row[id]'>Delete</a>
+                                    <a class='btn btn-secondary btn-sm' href='/edit.php?id=$row[id]'>Edit</a>
+                                    <a class='btn btn-outline-danger btn-sm' href='/delete.php?id=$row[id]'>Delete</a>
                                 </td>
                             </tr>
                         ";
